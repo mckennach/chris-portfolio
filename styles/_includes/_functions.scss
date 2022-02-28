@@ -1,0 +1,67 @@
+@function rem($size) {
+    $rem-size: math.div($size, 10);
+  
+    @return #{$rem-size}rem;
+  }
+  
+  @function assign-elements($elements, $pseudo: null) {
+    $list: ();
+  
+    @each $element in $elements {
+      $element: if($pseudo, $element + ':' + $pseudo, $element);
+      $list: append($list, $element, comma);
+    }
+  
+    @return $list;
+  }
+  
+  /**
+  * Breakpoints
+  *
+  * Map helper for the $theme map in _includes/_variables.
+  */
+  
+  @function breakpoints($breakpoint) {
+    @return map-get($breakpoints, $breakpoint);
+  }
+  
+  /**
+  * Layers
+  *
+  * Map helper for the $layers map in _includes/_variables.
+  */
+  
+  @function layer($layer) {
+    @return map-get($layers, $layer);
+  }
+  
+  /**
+  * Theme
+  *
+  * Map helper for the $theme map in _includes/_variables.
+  */
+  
+  @function theme($color) {
+    @return map-get($theme, $color);
+  }
+  
+  /**
+  * Base
+  *
+  * Map helper for the $base map in _includes/_variables.
+  */
+  
+  @function base($key) {
+    @return map-get($base, $key);
+  }
+  
+  /**
+  * Type
+  *
+  * Map helper for the $type map in _includes/_variables.
+  */
+  
+  @function type($style) {
+    @return map-get($type, $style);
+  }
+  

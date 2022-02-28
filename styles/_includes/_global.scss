@@ -1,0 +1,94 @@
+html {
+    // @include font-smoothing;
+  
+    @include font(primary, 400);
+    box-sizing: border-box;
+    font-size: 62.5%;
+  
+    * {
+      box-sizing: inherit;
+    }
+  
+    *::before,
+    *::after {
+      box-sizing: inherit;
+    }
+  }
+  
+  html,
+  body {
+    font-style: normal;
+    font-variant: normal;
+    font-weight: 400;
+    line-height: 1;
+    min-height: 100%;
+    text-transform: none;
+    vertical-align: text-top;
+  }
+  
+  body {
+    background: theme(pale);
+    color: theme(black);
+    display: flex;
+    flex-direction: column;
+    font-size: 17px;
+    font-size: 1.7rem;
+    line-height: 1.588;
+    max-width: 100vw;
+    min-height: 100vh;
+    overflow-x: hidden;
+    position: relative;
+  
+    &.show-overlay,
+    &.scroll-lock {
+      overflow: hidden;
+    }
+  }
+  
+  a {
+    @include transition('color, background-color, border-color');
+    color: theme(primary);
+    text-decoration: none;
+  
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+  
+  strong {
+    font-weight: 500;
+  }
+  
+  small {
+    color: theme(medium);
+  }
+  
+  .screen-reader-text {
+    @include visually-hidden;
+  }
+  
+  .iframe-wrapper {
+    height: 0;
+    padding-bottom: 56.25%;
+    position: relative;
+  
+    iframe {
+      height: 100%;
+      left: 0;
+      position: absolute;
+      top: 0;
+      width: 100%;
+    }
+  }
+  
+  .page {
+    background: theme(pale);
+    position: relative;
+    z-index: 1;
+  
+    .home & {
+      border-top: rem(1) solid theme(darker);
+      margin-top: 100vh;
+    }
+  }
+  

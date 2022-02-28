@@ -1,0 +1,27 @@
+
+/**
+* Sass Modules
+*
+* Including Sass module dependencies.
+*/
+
+@use 'sass:math';
+// @import '../../src/fonts/ss-social.css';
+// @import '../../src/fonts/ss-gizmo.css';
+// @import '../../src/fonts/ss-standard.css';
+// @import '../../node_modules/slick-carousel/slick/slick';
+
+
+/**
+* Includes
+*
+* Reusable functionality, variables and mixins.
+* Normalize and global styles.
+*/
+
+@import '_includes/functions';
+@import '_includes/fonts';
+@import '_includes/normalize';
+@import '_includes/variables';
+@import '_includes/mixins';
+@import '_includes/global';

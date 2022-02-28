@@ -1,0 +1,260 @@
+/**
+* Includes: Mixins
+*/
+
+/**
+* Clearfix
+*
+* Resets layout after using floats
+*/
+
+@mixin clearfix {
+    &::after {
+      clear: both;
+      content: '';
+      display: table;
+    }
+  }
+  
+  /**
+  * Visually Hidden
+  *
+  * Visually hides text while maintaining screen reader support.
+  */
+  
+  @mixin visually-hidden {
+    border: 0;
+    clip: rect(0 0 0 0);
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+  
+    // sass-lint:disable no-important
+    position: absolute;
+    width: 1px;
+    word-wrap: normal !important;
+  }
+  
+  /**
+  * Container
+  *
+  * Creates a centered element with the provided max-width.
+  * Defaults to the site-width set in $base map in _includes/_variables.
+  */
+  
+  @mixin container($width: site-width) {
+    margin: 0 auto;
+    max-width: rem(base($width));
+    padding: 0 rem(20);
+    width: 100%;
+  }
+  
+  /**
+  * Section
+  *
+  * Section specific styles.
+  */
+  
+  @mixin section {
+    border-color: theme(darker);
+    border-style: solid;
+    border-width: 0 rem(1) rem(1);
+    margin: 0 rem(50);
+    padding: 0 rem(50);
+    position: relative;
+  
+    &::before,
+    &::after {
+      background: theme(darker);
+      bottom: rem(-1);
+      content: '';
+      display: block;
+      height: rem(1);
+      position: absolute;
+      width: rem(9999);
+    }
+  
+    &::before {
+      left: rem(-9999);
+    }
+  
+    &::after {
+      right: rem(-9999);
+    }
+  
+    @include breakpoint(mobile) {
+      border-left: 0;
+      border-right: 0;
+      margin: 0 rem(20);
+    }
+  }
+  
+  /**
+  * Font
+  *
+  * Setting or changing a font.
+  * Defaults to the primary font set in the $fonts map in _includes/_variables.
+  */
+  
+  @mixin font($font: primary, $weight: 400, $style: normal, $transform: none) {
+    font-family: map-get($fonts, $font);
+    font-style: $style;
+    font-weight: $weight;
+    text-transform: $transform;
+  }
+  
+  /**
+  * Font Smoothing
+  *
+  * Anti-aliasing support for fonts.
+  */
+  
+  @mixin font-smoothing() {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  
+  /**
+  * Font Sizing
+  *
+  * Supports font sizing in rems with a pixel fallback value.
+  * Defaults to the font-size value set in the $base map in _includes/_variables.
+  */
+  
+  @mixin font-size($size: font-size) {
+    // sass-lint:disable no-duplicate-properties
+  
+    $default: base($size);
+  
+    @if $default {
+      font-size: $default + px;
+      font-size: rem($default);
+    } @else {
+      font-size: $size + px;
+      font-size: rem($size);
+    }
+  }
+  
+  /**
+  * Type Styling
+  *
+  * Supports commonnly used text styling.
+  * References values from the $type map in _includes/_variables.
+  */
+  
+  @mixin type-style($name) {
+    $style: type($name);
+  
+    @if type-of($style) == 'list' {
+      @include font-size(nth($style, 1));
+  
+      @if length($style) > 1 {
+        line-height: nth($style, 2);
+      }
+  
+      @if length($style) > 2 {
+        letter-spacing: nth($style, 3) + px;
+      }
+  
+      @if length($style) > 3 {
+        @include font(nth($style, 4));
+      }
+  
+      @if length($style) > 4 {
+        font-weight: nth($style, 5);
+      }
+  
+      @if length($style) > 5 {
+        text-transform: nth($style, 6);
+      }
+  
+      @if length($style) > 6 {
+        color: nth($style, 7);
+      }
+  
+      @if length($style) > 7 {
+        @include font-smoothing;
+      }
+    } @else {
+      @include font-size($style);
+    }
+  }
+  
+  /**
+  * Layer
+  *
+  * Setting the z-index value for an element.
+  * Defaults to the default value set in the $layers map in _includes/_variables.
+  */
+  
+  @mixin layer($name: default) {
+    $layer: map-get($layers, $name);
+  
+    @if $layer {
+      z-index: $layer;
+    } @else {
+      z-index: 0;
+    }
+  }
+  
+  /**
+  * List Zero
+  *
+  * Removing styles from a list.
+  */
+  
+  @mixin list-zero {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+  }
+  
+  /**
+  * Breakpoint
+  *
+  * Supports applying breakpoint specific styles.
+  * References the values set in the $breakpoints map in _includes/_variables.
+  */
+  
+  @mixin breakpoint($point) {
+    @if $point == full {
+      @media (min-width: #{map-get($breakpoints, full-min)}px) {
+        @content;
+      }
+    } @else if $point == desktop {
+      @media (min-width: #{map-get($breakpoints, desktop-min)}px) {
+        @content;
+      }
+    } @else if $point == mobile {
+      @media (max-width: #{map-get($breakpoints, mobile-max)}px) {
+        @content;
+      }
+    } @else if $point == tablet {
+      @media (min-width: #{map-get($breakpoints, tablet-min)}px) and (max-width: #{map-get($breakpoints, tablet-max)}px) {
+        @content;
+      }
+    } @else if $point == phone {
+      @media (max-width: #{map-get($breakpoints, phone-max)}px) {
+        @content;
+      }
+    }
+  }
+  
+  /**
+  * Transition
+  *
+  * Helper to support common duration and timing functions.
+  * Defaults to the font-size value set in the $base map in _includes/_variables.
+  */
+  
+  @mixin transition(
+    $property: all,
+    $duration: base(transition-duration),
+    $timing-function: base(transition-timing-function)
+  ) {
+    transition-duration: $duration;
+    transition-property: $property;
+    transition-timing-function: $timing-function;
+  }
+  
