@@ -4,7 +4,7 @@ export default function Header() {
       <nav>
         <ul>
           <li>
-            HELLO
+            yeep
           </li>
         </ul>
       </nav>
