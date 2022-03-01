@@ -1,10 +1,7 @@
-import Header from './partials/Header';
+import Home from './home';
 
-
-export default function Home() {
+export default function Index() {
   return (
-    <div >
-      <Header />
-    </div>
+    <Home />
   )
 }

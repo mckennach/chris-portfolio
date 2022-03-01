@@ -85,10 +85,6 @@ html {
     background: theme(pale);
     position: relative;
     z-index: 1;
-  
-    .home & {
-      border-top: rem(1) solid theme(darker);
-      margin-top: 100vh;
-    }
+
   }
   

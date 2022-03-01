@@ -1,7 +1,14 @@
 import '../styles/style.scss'
+import Header from '../components/Header/Header';
+import Footer from '../components/Footer/Footer';
 
-function MyApp({ Component, pageProps }) {
-  return <Component {...pageProps} />
+export default function MyApp({ Component, pageProps }) {
+  return (
+    <div class="site-wrapper">
+      <Header />
+        <Component {...pageProps} />
+      <Footer />
+    </div>
+  )
 }
 
-export default MyApp
