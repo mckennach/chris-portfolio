@@ -5,7 +5,7 @@
 /* Color Definitions */
 $color-black: #080808;
 $color-white: #fff;
-$color-gray-darker: #333;
+$color-gray-darker: #4D514A;
 $color-gray-dark: #777;
 $color-gray: #adadad;
 $color-gray-light: #ccc;
@@ -53,7 +53,7 @@ $breakpoints: (
 
 /* Fonts */
 $fonts: (
-  primary: ('aktiv-grotesk-extended', 'sans-serif'),
+  primary: ('montserrat', 'sans-serif'),
   secondary: ('Canela', 'serif'),
   tertiary: ('sofia-pro', 'sans-serif'),
   icons: ''
@@ -62,13 +62,13 @@ $fonts: (
 /* Color Theme */
 $theme: (
   black: #000,
-  darker: #242424,
+  darker: #303B4D,
   dark: #383838,
   light: #ae9c89,
   lighter: #f1efe4,
   pale: #fdfdf7,
   secondary: #5d3919,
-  primary: #b94a12,
+  primary: #fff,
 );
 
 /* Base Settings */
@@ -93,7 +93,7 @@ $layers: (
 
 /* Typography */
 $type: (
-  label : (9, 1, 1.26, primary, 400, uppercase, theme(darker)),
+  primary : (9, 1, 1.26, primary, 400, uppercase, theme(darker)),
   placeholder: ( 15, 1, 0, tertiary, 300, normal, rgba(theme(darker), 0.3)),
   description : (12, 1.6667, 0, tertiary, 300, none, theme(darker)),
   body : (15, 1.6667, 0, tertiary, 300, none, theme(darker)),

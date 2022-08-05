@@ -1,27 +1,37 @@
 import Link from 'next/link'
 
+const currentYear = () => new Date().getFullYear();
+console.log(currentYear());
 export default function Footer() {
     return (
-      <footer>
-        <nav>
-            <ul>
-                <li>
-                    <Link href="/">
-                        <a>Home</a>
-                    </Link>
-                </li>
-                <li>
-                    <Link href="/about">
-                        <a>About Us</a>
-                    </Link>
-                </li>
-                <li>
-                    <Link href="/contact">
-                        <a>Contact</a>
-                    </Link>
-                </li>
-            </ul>
-        </nav>
+      <footer className="component--footer">
+        <div className="component--footer__container">
+            
+            <div className="component--footer__copyright">
+                <p>© { currentYear() } Chris McKenna, All rights reserved.</p>
+            </div>
+            
+            <nav className="component--footer__nav">
+                <ul className="component--footer__ul">
+                    <li className="component--footer__li">
+                        <Link href="mailto:hello@mckenna.com" passHref>
+                            <a target="_blank" rel="noreferrer">hello@mckennach.com</a>
+                        </Link>
+                    </li>
+                    <li className="component--footer__li">
+                        <Link href="https://github.com/mckennach" passHref>
+                            <a target="_blank" rel="noreferrer">Github</a>
+                        </Link>
+                    </li>
+                    <li className="component--footer__li">
+                        <Link href="https://www.instagram.com/creeesmck/" passHref>
+                            <a target="_blank" rel="noreferrer">Instagram</a>
+                        </Link>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+        
       </footer>
     )
   }

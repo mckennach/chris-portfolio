@@ -1,0 +1,39 @@
+.component--footer {
+    padding: 5rem 0;
+    &__container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-direction: column;
+        text-align: center;
+        @include breakpoint(desktop) {
+            flex-direction: row;
+            text-align: left;
+        }
+    }
+
+    &__ul {
+        list-style-type: none;
+        display: flex;
+        padding: 0;
+        margin: 0;
+        flex-wrap: wrap;
+        flex-direction: column;
+        @include breakpoint(desktop) {
+            flex-direction: row;
+        }
+
+       
+
+       
+    }
+
+    &__li {
+        @include breakpoint(desktop) {
+            margin-left: 15px;
+        }
+        a:hover {
+            color: #D95023;
+        }
+    }
+}

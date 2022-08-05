@@ -1,0 +1,160 @@
+/* --------------------------------------------------------------------------
+Sizing - Gutters
+----------------------------------------------------------------------------- */
+$grid-column-gutter-size: 1.5rem;
+
+/* Used in partials/_layout.scss */
+$grid-row-gutter-size: 1.5rem;
+
+/* Used in partials/_layout.scss */
+
+/* --------------------------------------------------------------------------
+Grid Styles
+----------------------------------------------------------------------------- */
+[class^="cols"] {
+	display: grid;
+
+	// grid-column-gap: $grid-column-gutter-size;
+	// grid-row-gap: $grid-row-gutter-size;
+	grid-gap: $grid-row-gutter-size $grid-column-gutter-size;
+	grid-template-columns: 1fr;
+	grid-template-rows: auto;
+}
+
+/* 👉🏻  These classes go on the PARENT container, not the children. */
+.cols-2 {
+	@media (min-width: 768px) {
+		grid-template-columns: repeat(2, 1fr);
+	}
+}
+
+.cols-3 {
+	@media (min-width: 768px) {
+		grid-template-columns: repeat(3, 1fr);
+	}
+}
+
+.cols-4 {
+	@media (min-width: 768px) {
+		grid-template-columns: repeat(2, 1fr);
+	}
+
+	@media (min-width: 1024px) {
+		grid-template-columns: repeat(4, 1fr);
+	}
+}
+
+.cols-1-2 {
+	@media (min-width: 768px) {
+		grid-template-columns: 1fr 2fr;
+	}
+}
+
+.cols-2-1 {
+	@media (min-width: 768px) {
+		grid-template-columns: 2fr 1fr;
+	}
+}
+
+.cols-40-60 {
+	@media (min-width: 768px) {
+		grid-template-columns: 40% 60%;
+	}
+}
+
+.cols-45-55 {
+	@media (min-width: 768px) {
+		grid-template-columns: 45% 55%;
+	}
+}
+
+.no-gutters {
+	grid-gap: 0;
+}
+
+.xl-gutters {
+	grid-column-gap: 160px;
+
+	@media (min-width: 768px) {
+		grid-column-gap: 25px;
+	}
+}
+
+/* ⭐  Styles for IE & OLDER BROWSERS that don't support CSS Grid using Modernizr's .no-cssgrid class  */
+.no-cssgrid {
+	[class^="cols"] {
+		@extend %clearfix;
+
+		> * {
+			margin-bottom: $grid-row-gutter-size;
+		}
+	}
+
+	/* Use floats for older browsers to turn elements into columns for screens larger than the tablet-up breakpoint in variables.scss */
+
+	@media (min-width: 768px) {
+		[class^="cols"] {
+			margin-left: (-$grid-column-gutter-size);
+
+			> * {
+				float: left;
+				margin-left: $grid-column-gutter-size;
+			}
+		}
+
+		.cols-2 > * {
+			width: calc(50% - #{$grid-column-gutter-size});
+
+		}
+
+		.cols-3 > * {
+			width: calc(33.3% - #{$grid-column-gutter-size});
+
+		}
+
+		.cols-4 > * {
+			width: calc(25% - #{$grid-column-gutter-size});
+
+		}
+
+		.cols-1-2 > :first-of-type {
+			width: calc(33.33% - #{$grid-column-gutter-size});
+
+		}
+
+		.cols-1-2 > :last-of-type {
+			width: calc(66.66% - #{$grid-column-gutter-size});
+
+		}
+
+		.cols-2-1 > :first-of-type {
+			width: calc(66.66% - #{$grid-column-gutter-size});
+
+		}
+
+		.cols-2-1 > :last-of-type {
+			width: calc(33.33% - #{$grid-column-gutter-size});
+
+		}
+
+		.cols-40-60 > :first-of-type {
+			width: calc(40% - #{$grid-column-gutter-size});
+
+		}
+
+		.cols-40-60 > :last-of-type {
+			width: calc(60% - #{$grid-column-gutter-size});
+
+		}
+		
+		.cols-45-55 > :first-of-type {
+			width: calc(45% - #{$grid-column-gutter-size});
+
+		}
+
+		.cols-45-55 > :last-of-type {
+			width: calc(55% - #{$grid-column-gutter-size});
+
+		}
+	}
+}

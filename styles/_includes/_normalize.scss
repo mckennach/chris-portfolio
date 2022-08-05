@@ -29,7 +29,7 @@
  
    @if $legacy-browser-support {
      *font-size: 100%; /* 3 */
-   }
+   } 
  }
  
  /**
@@ -161,6 +161,12 @@
   * Address variable `h1` font-size and margin within `section` and `article`
   * contexts in Firefox 4+, Safari, and Chrome.
   */
+
+  h1,h2,h3,h4,h5,h6 {
+    font-style: normal;
+    font-weight: normal;
+    margin: 0;
+  }
  
  h1 {
    font-size: 2em;

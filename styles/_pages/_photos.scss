@@ -1,0 +1,38 @@
+.page--photos {
+    @include max-width(100);
+
+    &__heading {
+        text-align: center;
+        padding: 3.5rem 0;
+    }
+
+    &__title {
+        color: #D95023;
+
+    }
+
+    &__desc {
+
+        @include max-width(36);
+
+        p {
+            margin-top: 0;
+        }
+    }
+
+    
+
+    &__ul {
+        margin: 0 auto;
+        padding: 0;
+        list-style: none;
+    }
+
+    &__li {
+        margin-bottom: 3rem;
+        @include aspect-ratio(450, 280);
+
+    }
+
+    
+}

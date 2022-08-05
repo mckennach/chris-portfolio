@@ -1,0 +1,43 @@
+.component--header {
+    display: flex;
+    justify-content: space-between;
+    padding: 0.5rem 0;
+    &__logo-wrapper {
+        display: flex;
+        align-items: center;
+        text-align: center;
+    }
+
+    &__navigation {
+        display: flex;
+        align-items: center;
+    }
+
+    &__ul {
+        list-style: none;
+        padding: 0;
+        display: flex;
+        margin: 0;
+    }
+
+    &__li {
+        margin-right: 1.5rem;
+        @include pseudo-underline(theme(darker), 2px, -4px, 0%, .2s);
+        &:hover, &.active {
+            @include pseudo-underline(theme(darker), 2px, -4px, 100%, .2s);
+        }
+
+        &.external {
+            @include pseudo-underline(#D95023, 2px, -4px, 0%, .2s);
+            a {
+                color: #D95023;
+            }
+        }
+
+        &.external:hover {
+            @include pseudo-underline(#D95023, 2px, -4px, 100%, .2s);
+        }
+    }
+    
+
+}

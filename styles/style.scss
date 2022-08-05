@@ -11,6 +11,8 @@
 // @import '../../src/fonts/ss-standard.css';
 // @import '../../node_modules/slick-carousel/slick/slick';
 
+@import url("https://use.typekit.net/pwc3ufv.css");
+
 
 /**
 * Includes
@@ -25,3 +27,14 @@
 @import '_includes/variables';
 @import '_includes/mixins';
 @import '_includes/global';
+@import '_includes/grid';
+
+
+
+@import '_partials/header';
+@import '_partials/footer';
+
+
+@import '_pages/home';
+@import '_pages/projects';
+@import '_pages/photos';

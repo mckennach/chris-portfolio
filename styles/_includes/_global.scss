@@ -1,10 +1,9 @@
 html {
     // @include font-smoothing;
   
-    @include font(primary, 400);
     box-sizing: border-box;
     font-size: 62.5%;
-  
+
     * {
       box-sizing: inherit;
     }
@@ -24,11 +23,13 @@ html {
     min-height: 100%;
     text-transform: none;
     vertical-align: text-top;
+    
   }
   
   body {
-    background: theme(pale);
-    color: theme(black);
+    background: theme(lighter);
+    color: theme(darker);
+    @include montserrat-regular;
     display: flex;
     flex-direction: column;
     font-size: 17px;
@@ -47,12 +48,10 @@ html {
   
   a {
     @include transition('color, background-color, border-color');
-    color: theme(primary);
+    color: theme(darker);
     text-decoration: none;
   
-    &:hover {
-      text-decoration: underline;
-    }
+
   }
   
   strong {
@@ -85,6 +84,17 @@ html {
     background: theme(pale);
     position: relative;
     z-index: 1;
+  }
 
+  .container {
+    width: 90%;
+    max-width: 1350px;
+    margin: 0 auto;
+
+    min-height: 100vh;
+  }
+
+  img {
+    max-width:100%;
   }
   

@@ -1,0 +1,28 @@
+.page--home {
+    &__heading {
+        text-align: center;
+        padding: 3.5rem 0;
+    }
+
+    &__desc {
+       
+        // @include max-width(36);
+        p {
+            margin-top: 0;
+        }
+    }
+
+    &__img-container {
+        @include aspect-ratio(500, 250);
+        @include max-width(100);
+
+    }
+
+    &__title {
+        span {
+            color: #D95023;
+        }
+    }
+
+   
+}

@@ -4,10 +4,12 @@ import Footer from '../components/Footer/Footer';
 
 export default function MyApp({ Component, pageProps }) {
   return (
-    <div class="site-wrapper">
-      <Header />
-        <Component {...pageProps} />
-      <Footer />
+    <div className="site-wrapper">
+      <div className="container">
+        <Header />
+          <Component {...pageProps} />
+        <Footer />
+      </div>
     </div>
   )
 }
