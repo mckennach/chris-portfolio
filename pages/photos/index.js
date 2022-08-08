@@ -17,9 +17,9 @@ import Image from 'next/image'
                 <ul className="page--photos__ul">
                     <li className="page--photos__li">
                         <Image 
-                        src="/img-1.jpg" 
-                        layout="fill"
-                        alt="Photo Gallery Image" />
+                            src="/img-1.jpg" 
+                            layout="fill"
+                            alt="Photo Gallery Image" />
                     </li>
                     <li className="page--photos__li">
                         <Image src="/mike.jpg" layout="fill"
