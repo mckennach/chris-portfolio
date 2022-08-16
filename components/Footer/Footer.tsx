@@ -27,10 +27,14 @@ export default function Footer() {
                             <a target="_blank" rel="noreferrer">Instagram</a>
                         </Link>
                     </li>
+                    <li className="component--footer__li">
+                        <Link href="https://www.linkedin.com/in/mckennach/" passHref>
+                            <a target="_blank" rel="noreferrer">Linkedin</a>
+                        </Link>
+                    </li>
                 </ul>
             </nav>
         </div>
-        
       </footer>
     )
   }
