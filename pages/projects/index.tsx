@@ -1,5 +1,7 @@
 import Link from 'next/link'
 import projectList from '../../assets/data/projects';
+import LoginComponent from '../../components/Login/Login';
+import { withPasswordProtect } from "@storyofams/next-password-protect";
 import Image from 'next/image'
  
 
@@ -51,4 +53,10 @@ const ProjectList = props => {
     );
   };
 
-  export default Projects;
+//   export default Projects;
+export default process.env.PASSWORD_PROTECT
+  ? withPasswordProtect(Projects, {
+    // Options go here (optional)
+    loginComponent: LoginComponent
+  })
+  : Projects;
