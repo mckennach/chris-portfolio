@@ -13,9 +13,9 @@ const ProjectList = props => {
         <ul className="cols-3 page--projects__ul">
             {
                 projectList.map((project,i) => {
-                    const { name, url, details, imgUrl } = project;
+                    const { name, url, details, imgUrl, id } = project;
                     return (
-                        <li className="page--projects__li" key={i}>
+                        <li className="page--projects__li" data-id={id} key={i}>
                             <a href={url} target="_blank" rel="noreferrer">
                                 <figure className="page--projects__figure">
                                     <div className="page--projects__img-container">
